@@ -1,0 +1,16 @@
+{
+    "zh": {
+        "home": "首页",
+        "search": "搜索内容...",
+        "about": "关于我们",
+        "code": "代码",
+        "tutorials": "教程"
+    },
+    "en": {
+        "home": "Home",
+        "search": "Search...",
+        "about": "About",
+        "code": "Code",
+        "tutorials": "Tutorials"
+    }
+}
