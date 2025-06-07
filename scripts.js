@@ -15,6 +15,10 @@ async function loadLocale(lang) {
         const data = await response.json();
         i18nData = data;
         updateTextContent(lang);
+        // 修改隐私协议页面初始化逻辑
+        if (window.location.pathname.includes('/privacy')) {
+            document.title = i18nData[lang]['privacy_title'];
+        }
     } catch (error) {
         console.error('Error loading language file:', error);
     }
