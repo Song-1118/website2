@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="register_title">极光栈|用户注册</title>
+    <title>极光栈|用户注册</title>
     <link rel="icon" href="images/logo.svg" type="image/svg+xml">
     <link rel="stylesheet" href="src/styles.css">
     <link rel="stylesheet" href="src/login-styles.css">
 </head>
 <body>
-    <header data-load-header></header>
+    <header data-load-header>
+        <div class="header-utils">
+            <select class="lang-switcher">
+                <option value="zh">中文</option>
+                <option value="en">English</option>
+            </select>
+        </div>
+    </header>
     
     <main class="login-container">
         <form class="login-form" action="/register" method="POST">

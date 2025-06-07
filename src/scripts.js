@@ -37,6 +37,29 @@ function updateTextContent(lang) {
     });
 }
 
+// 新增登录功能开关检查
+async function checkLoginEnable() {
+    try {
+        const response = await fetch('https://kepaq4ixi0.hzh.sealos.run/Enable_login');
+        const data = await response.json();
+        const loginBtn = document.getElementById('login-btn');
+        const registerBtn = document.getElementById('register-btn');
+        
+        if (data.Enable_login === "true") {
+            loginBtn.style.display = 'block';
+            registerBtn.style.display = 'block';
+        } else {
+            loginBtn.style.display = 'none';
+            registerBtn.style.display = 'none';
+        }
+    } catch (error) {
+        console.error('检查登录功能时出错:', error);
+        // 默认隐藏按钮
+        document.getElementById('login-btn').style.display = 'none';
+        document.getElementById('register-btn').style.display = 'none';
+    }
+}
+
 // 修改初始化函数添加主题初始化
 async function initSettings() {
     // 新增主题初始化逻辑
@@ -46,6 +69,7 @@ async function initSettings() {
     const savedLang = localStorage.getItem('lang') || 'zh';
     document.querySelector('.lang-switcher').value = savedLang;
     await loadLocale(savedLang);
+    await checkLoginEnable(); // 新增登录功能检查
 }
 
 document.addEventListener('DOMContentLoaded', initSettings);

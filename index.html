@@ -34,8 +34,8 @@
         <div class="header-utils">
             <button class="hamburger-menu">☰</button>
             <button class="theme-switcher" onclick="toggleTheme()">🌙</button>
-            <button onclick="window.location.href='login.html'" class="btn-login-home" data-i18n="login">登录</button>
-            <button onclick="window.location.href='register.html'" class="btn-login-home" style="margin-left:8px;" data-i18n="register">注册</button>
+            <button id="login-btn" onclick="window.location.href='login.html'" class="btn-login-home" data-i18n="login" style="display:none;">登录</button>
+            <button id="register-btn" onclick="window.location.href='register.html'" class="btn-login-home" style="margin-left:8px; display:none;" data-i18n="register">注册</button>
             <select class="lang-switcher">
                 <option value="zh">中文</option>
                 <option value="en">English</option>

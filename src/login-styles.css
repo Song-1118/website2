@@ -55,3 +55,7 @@
         padding: 1.5rem;
     }
 }
+.header-logo {
+    width: 150px; /* 调整标志宽度 */
+    height: auto; /* 保持比例 */
+}
