@@ -1,0 +1,13 @@
+# 极光栈网站爬虫协议
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /tmp/
+
+# 网站地图声明
+Sitemap: https://qwix.dpdns.org/sitemap.xml
+
+# 注释说明：
+# 1. 请将aurorahub.com替换为实际域名
+# 2. 每月自动生成新站点地图时需同步更新时间戳
+# 3. 禁止爬取的目录可根据实际项目结构调整
