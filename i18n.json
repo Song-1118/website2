@@ -19,16 +19,18 @@
         "about_content": "极光栈致力于提供优质的编程资源和技术解决方案...",
         "programming": "编程",
         "music": "音乐",
-        "copyright": "© 2023 极光栈 | AuroraHub 版权所有",
+        "copyright": "© 2025 极光栈 | AuroraHub 版权所有",
         "privacy_policy": "隐私政策",
         "social_douyin": "抖音",
         "social_oldweb": "旧站",
         "privacy_title": "隐私政策",
         "last_updated": "最后更新：2025年6月7日",
         "policy_intro": "本隐私政策描述了我们在您使用服务时收集、使用和披露您的信息的政策和程序...",
-        "term_company": "公司",
-        "section_contact": "联系我们",
-        "contact_email": "电子邮箱：19924539884@163.com"
+        "contact_email": "电子邮箱：19924539884@163.com",
+        "login": "登录",
+        "login_heading": "用户登录",
+        "username": "用户名",
+        "password": "密码"
     },
     "en": {
         "home": "Home",
@@ -50,15 +52,17 @@
         "about_content": "AuroraHub is committed to providing quality programming resources and technical solutions...",
         "programming": "Programming",
         "music": "Music",
-        "copyright": "© 2023 AuroraHub | All Rights Reserved",
+        "copyright": "© 2025 AuroraHub | All Rights Reserved",
         "privacy_policy": "Privacy Policy", 
         "social_douyin": "Douyin",
         "social_oldweb": "Old Website",
         "privacy_title": "Privacy Policy",
-        "last_updated": "Last updated: June 07, 2025",
+        "last_updated": "Last updated: June 07, 2025", 
         "policy_intro": "This Privacy Policy describes Our policies and procedures...",
-        "term_company": "Company",
-        "section_contact": "Contact Us",
-        "contact_email": "Email: 19924539884@163.com"
+        "contact_email": "Email: 19924539884@163.com",
+        "login": "Login",
+        "login_heading": "User Login",
+        "username": "User Name",
+        "password": "Password"
     }
 }

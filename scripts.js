@@ -1,74 +1,70 @@
-// 新增主题切换函数
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? '' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-}
-
-// 新增异步加载语言文件功能
-let i18nData = {};
-
-async function loadLocale(lang) {
-    try {
-        const response = await fetch(`i18n.json`);
-        const data = await response.json();
-        i18nData = data;
-        updateTextContent(lang);
-        // 修改隐私协议页面初始化逻辑
-        if (window.location.pathname.includes('/privacy')) {
-            document.title = i18nData[lang]['privacy_title'];
-        }
-    } catch (error) {
-        console.error('Error loading language file:', error);
-    }
-}
-
-// 新增文本更新函数
-function updateTextContent(lang) {
-    document.querySelectorAll('[data-i18n]').forEach(element => {
-        const key = element.getAttribute('data-i18n');
-        element.textContent = i18nData[lang][key];
-        
-        // 处理输入框placeholder
-        if (element.tagName === 'INPUT') {
-            element.placeholder = i18nData[lang][key];
-        }
+// 新增头部组件加载逻辑
+function loadHeader() {
+    const headerPlaceholders = document.querySelectorAll('[data-load-header]');
+    
+    headerPlaceholders.forEach(placeholder => {
+        fetch('components/header.html')
+            .then(response => response.text())
+            .then(html => {
+                placeholder.outerHTML = html;
+                initHeaderFunctions();
+                bindLangSwitcher(); // 新增绑定事件
+                initSettings(); // 确保在header加载后初始化
+            });
     });
 }
 
-// 修改初始化函数添加主题初始化
+// 初始化头部交互功能
+function initHeaderFunctions() {
+    // 原有头部交互逻辑...
+}
+
+// 修改初始化函数添加空值检查和元素加载确认
 async function initSettings() {
     // 新增主题初始化逻辑
     const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : '');
     document.documentElement.setAttribute('data-theme', savedTheme);
 
-    const savedLang = localStorage.getItem('lang') || 'zh';
-    document.querySelector('.lang-switcher').value = savedLang;
-    await loadLocale(savedLang);
+    // 新增元素加载检查
+    const checkElement = setInterval(() => {
+        const langSwitcher = document.querySelector('.lang-switcher');
+        if (langSwitcher) {
+            clearInterval(checkElement);
+            const savedLang = localStorage.getItem('lang') || 'zh';
+            langSwitcher.value = savedLang;
+            loadLocale(savedLang);
+        }
+    }, 100); // 每100ms检查一次元素存在性
 }
 
-document.addEventListener('DOMContentLoaded', initSettings);
-
-// 修改语言切换事件
-document.querySelector('.lang-switcher').addEventListener('change', async (e) => {
-    const lang = e.target.value;
-    localStorage.setItem('lang', lang);
-    await loadLocale(lang);
-    e.target.blur(); // 新增失焦操作
-});
-
-// 新增移动端菜单切换功能
-document.querySelector('.hamburger-menu').addEventListener('click', () => {
-    const navMenu = document.querySelector('.nav-menu ul');
-    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-});
-
-// 新增窗口resize监听器
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-        document.querySelector('.nav-menu ul').style.display = 'flex';
-    } else {
-        document.querySelector('.nav-menu ul').style.display = 'none';
+// 修改语言切换事件绑定方式为动态绑定
+function bindLangSwitcher() {
+    const langSwitcher = document.querySelector('.lang-switcher');
+    if (langSwitcher) {
+        // 删除原有事件监听器
+        const newElement = langSwitcher.cloneNode(true);
+        langSwitcher.parentNode.replaceChild(newElement, langSwitcher);
+        
+        // 重新绑定事件
+        newElement.addEventListener('change', async (e) => {
+            const lang = e.target.value;
+            localStorage.setItem('lang', lang);
+            await loadLocale(lang);
+            e.target.blur();
+        });
     }
+}
+
+// 文档加载完成后执行
+document.addEventListener('DOMContentLoaded', () => {
+    loadHeader();
+    // 新增初始化检查
+    const checkElements = setInterval(() => {
+        const langSwitcher = document.querySelector('.lang-switcher');
+        if (langSwitcher) {
+            clearInterval(checkElements);
+            initSettings();
+            bindLangSwitcher(); // 确保事件重新绑定
+        }
+    }, 100);
 });

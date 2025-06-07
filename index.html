@@ -10,7 +10,7 @@
     <meta name="robots" content="index,follow">
     <meta http-equiv="Content-Language" content="zh-CN">
     <title>极光栈|AuroraHub</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="src/styles.css">
     <link rel="icon" href="images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -33,6 +33,7 @@
 
         <div class="header-utils">
             <button class="theme-switcher" onclick="toggleTheme()">🌙</button>
+            <button onclick="window.location.href='login.html'" class="btn-login-home" data-i18n="login">登录</button>
             <select class="lang-switcher">
                 <option value="zh">中文</option>
                 <option value="en">English</option>
@@ -68,13 +69,6 @@
             </div>
         </section>
 
-        <!-- 关于我们 -->
-        <section class="about-section">
-            <article>
-                <h2 data-i18n="about_title">关于我们</h2>
-                <p data-i18n="about_content">&copy; 极光栈致力于提供优质的编程资源和技术解决方案...</p>
-            </article>
-        </section>
     </main>
 
     <!-- 新增底部 -->
@@ -91,6 +85,6 @@
         </div>
     </footer>
 
-    <script src="scripts.js"></script>
+    <script src="src/scripts.js"></script>
 </body>
 </html>
