@@ -33,8 +33,9 @@ body {
 
 /* 头部样式 */
 .main-header {
+    position: relative; /* 新增定位上下文 */
     display: flex;
-    justify-content: space-between;
+    justify-content: start; /* 修改为起始对齐 */
     align-items: center;
     padding: 1rem 5%;
     background-color: var(--header-bg);
@@ -50,6 +51,7 @@ body {
 .header-logo img {
     width: 50px;
     height: auto;
+    content: url(../images/logo.png); /* 新增图片路径引用 */
 }
 
 .logo-text {
@@ -75,24 +77,69 @@ body {
     color: #1a73e8;
 }
 
+/* 新增工具容器样式 */
 .header-utils {
+    flex: 1;
     display: flex;
-    align-items: center;
-    gap: 1.5rem;
+    justify-content: space-evenly; /* 均分空间 */
+    max-width: 300px; /* 限制最大宽度 */
+    margin-left: auto; /* 保持靠右 */
 }
 
-.search-box {
-    padding: 0.5rem 1rem;
-    border: 1px solid #ddd;
-    border-radius: 20px;
-    width: 200px;
+/* 调整汉堡菜单样式 */
+.hamburger-menu {
+    order: -1; /* 移动到最左侧 */
+    margin-right: 1rem;
 }
 
-.lang-switcher {
-    padding: 0.5rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background-color: #fff;
+/* 新增主体内容样式 */
+.main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 5%;
+}
+
+/* 欢迎横幅样式 */
+.hero-section {
+    text-align: center;
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.subtitle {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.features-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 3rem 0;
+}
+
+/* 修改现有feature-card样式添加边框 */
+.feature-card {
+    padding: 1.5rem;
+    border-radius: 8px;
+    background-color: var(--header-bg);
+    border: 1px solid var(--border-color);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
 }
 
 /* 新增暗黑模式切换按钮样式 */
@@ -110,4 +157,113 @@ body {
 [data-theme="dark"] .theme-switcher {
     border-color: var(--primary-color);
     color: var(--primary-color);
+}
+
+/* 新增移动端适配 */
+@media (max-width: 768px) {
+    /* 优化导航菜单 */
+    .nav-menu ul {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px); /* 调整顶部间距 */
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--header-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        padding: 1rem;
+        flex-direction: column;
+        width: 90%; /* 改为百分比宽度 */
+        max-width: 300px; /* 新增最大宽度限制 */
+        box-sizing: border-box; /* 包含padding */
+        z-index: 1000; /* 确保菜单在最上层 */
+    }
+    
+    /* 新增汉堡菜单按钮 */
+    .hamburger-menu {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--text-color);
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+    
+    /* 优化功能卡片间距 */
+    .features-section {
+        grid-template-columns: 1fr; /* 修改为单列布局 */
+        gap: 1.5rem; /* 调整间距 */
+    }
+    
+    /* 调整按钮大小和间距 */
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem; /* 增加按钮间距 */
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%; /* 按钮宽度占满容器 */
+        max-width: 300px;
+        font-size: 1rem; /* 调整字体大小 */
+        padding: 0.7rem 1.2rem; /* 调整内边距 */
+    }
+    
+    /* 调整标题和副标题的字体大小 */
+    .hero-section h1 {
+        font-size: 2rem; /* 调整标题字体大小 */
+    }
+    
+    .subtitle {
+        font-size: 1rem; /* 调整副标题字体大小 */
+    }
+    
+    .header-utils {
+        max-width: 60%; /* 增加移动端空间占比 */
+        justify-content: space-between; /* 元素等间距 */
+    }
+    
+    .theme-switcher,
+    .lang-switcher {
+        margin: 0 5px; /* 增加元素间距 */
+    }
+}
+
+/* 修改电脑端样式 */
+@media (min-width: 769px) {
+    .hamburger-menu {
+        display: none;
+    }
+    
+    .nav-menu ul {
+        display: flex;
+    }
+
+    /* 新增电脑端工具按钮布局调整 */
+    .header-utils {
+        justify-content: flex-end; /* 恢复默认右对齐 */
+        max-width: none; /* 移除宽度限制 */
+        gap: 1rem; /* 新增按钮间距 */
+    }
+}
+
+/* 按钮基础样式 */
+.btn-primary,
+.btn-secondary {
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
 }

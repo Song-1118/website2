@@ -1,5 +1,10 @@
-// 删除原i18nData获取方式
-// const i18nData = JSON.parse(document.getElementById('i18n-data').textContent);
+// 新增主题切换函数
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? '' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}
 
 // 新增异步加载语言文件功能
 let i18nData = {};
@@ -28,19 +33,38 @@ function updateTextContent(lang) {
     });
 }
 
-// 修改初始化函数
+// 修改初始化函数添加主题初始化
 async function initSettings() {
-    const savedTheme = localStorage.getItem('theme') || '';
+    // 新增主题初始化逻辑
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : '');
     document.documentElement.setAttribute('data-theme', savedTheme);
-    
+
     const savedLang = localStorage.getItem('lang') || 'zh';
     document.querySelector('.lang-switcher').value = savedLang;
     await loadLocale(savedLang);
 }
+
+document.addEventListener('DOMContentLoaded', initSettings);
 
 // 修改语言切换事件
 document.querySelector('.lang-switcher').addEventListener('change', async (e) => {
     const lang = e.target.value;
     localStorage.setItem('lang', lang);
     await loadLocale(lang);
+    e.target.blur(); // 新增失焦操作
+});
+
+// 新增移动端菜单切换功能
+document.querySelector('.hamburger-menu').addEventListener('click', () => {
+    const navMenu = document.querySelector('.nav-menu ul');
+    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+});
+
+// 新增窗口resize监听器
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        document.querySelector('.nav-menu ul').style.display = 'flex';
+    } else {
+        document.querySelector('.nav-menu ul').style.display = 'none';
+    }
 });

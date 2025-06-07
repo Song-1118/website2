@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>极光栈 AuroraHub</title>
+    <title>极光栈|AuroraHub</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
 </head>
 <body>
     <header class="main-header">
@@ -12,6 +13,8 @@
             <img src="images/logo.png" alt="极光栈 Logo">
             <span class="logo-text">极光栈<br>AuroraHub</span>
         </div>
+        <!-- 在header-logo后添加汉堡菜单 -->
+        <button class="hamburger-menu">☰</button>
         
         <nav class="nav-menu">
             <ul>
@@ -23,15 +26,51 @@
         </nav>
 
         <div class="header-utils">
-            <button class="theme-switcher">🌙</button>
-            <input type="search" data-i18n="search" class="search-box">
+            <button class="theme-switcher" onclick="toggleTheme()">🌙</button>
             <select class="lang-switcher">
                 <option value="zh">中文</option>
                 <option value="en">English</option>
             </select>
         </div>
     </header>
-    <!-- 新增脚本引用 -->
+
+    <!-- 新增主体部分 -->
+    <main class="main-content">
+        <!-- 欢迎横幅 -->
+        <section class="hero-section">
+            <h1 data-i18n="welcome_title">欢迎来到极光栈</h1>
+            <p class="subtitle" data-i18n="welcome_subtitle">探索无限可能</p>
+            <div class="cta-buttons">
+                <button class="btn-primary" data-i18n="programming_zone" onclick="window.location.href='tutorials.html'">编程专区</button>
+                <button class="btn-secondary" data-i18n="download_code" onclick="window.location.href='code.html'">代码下载</button>
+            </div>
+        </section>
+
+        <!-- 功能介绍 -->
+        <section class="features-section">
+            <div class="feature-card">
+                <h3 data-i18n="feature1_title">快速响应</h3>
+                <p data-i18n="feature1_desc">我们的平台确保快速加载和无缝体验</p>
+            </div>
+            <div class="feature-card">
+                <h3 data-i18n="feature2_title">跨平台支持</h3>
+                <p data-i18n="feature2_desc">支持多设备访问，包括桌面、平板和移动设备</p>
+            </div>
+            <div class="feature-card">
+                <h3 data-i18n="feature3_title">安全保障</h3>
+                <p data-i18n="feature3_desc">采用先进的安全措施保护用户数据</p>
+            </div>
+        </section>
+
+        <!-- 关于我们 -->
+        <section class="about-section">
+            <article>
+                <h2 data-i18n="about_title">关于我们</h2>
+                <p data-i18n="about_content">极光栈致力于提供优质的编程资源和技术解决方案...</p>
+            </article>
+        </section>
+    </main>
+
     <script src="scripts.js"></script>
 </body>
 </html>

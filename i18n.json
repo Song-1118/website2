@@ -4,13 +4,41 @@
         "search": "搜索内容...",
         "about": "关于我们",
         "code": "代码",
-        "tutorials": "教程"
+        "tutorials": "教程",
+        "welcome_title": "欢迎来到极光栈",
+        "welcome_subtitle": "探索无限可能",
+        "programming_zone": "编程专区",
+        "download_code": "代码下载",
+        "feature1_title": "快速响应",
+        "feature1_desc": "我们的平台确保快速加载和无缝体验",
+        "feature2_title": "跨平台支持",
+        "feature2_desc": "支持多设备访问，包括桌面、平板和移动设备",
+        "feature3_title": "安全保障", 
+        "feature3_desc": "采用先进的安全措施保护用户数据",
+        "about_title": "关于我们",
+        "about_content": "极光栈致力于提供优质的编程资源和技术解决方案...",
+        "programming": "编程",
+        "music": "音乐"
     },
     "en": {
         "home": "Home",
         "search": "Search...",
         "about": "About",
         "code": "Code",
-        "tutorials": "Tutorials"
+        "tutorials": "Tutorials",
+        "welcome_title": "Welcome to AuroraHub",
+        "welcome_subtitle": "Explore Endless Possibilities",
+        "programming_zone": "Programming Zone",
+        "download_code": "Download Code",
+        "feature1_title": "Fast Response",
+        "feature1_desc": "Our platform ensures fast loading and seamless experience",
+        "feature2_title": "Cross-Platform Support",
+        "feature2_desc": "Supports multiple devices including desktop, tablet and mobile",
+        "feature3_title": "Security Guaranteed",
+        "feature3_desc": "Advanced security measures to protect user data",
+        "about_title": "About Us",
+        "about_content": "AuroraHub is committed to providing quality programming resources and technical solutions...",
+        "programming": "Programming",
+        "music": "Music"
     }
 }
