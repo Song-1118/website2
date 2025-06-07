@@ -46,6 +46,7 @@ body {
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin-right: 20px;
 }
 
 .header-logo img {
@@ -97,13 +98,6 @@ body {
     max-width: 1200px;
     margin: 2rem auto;
     padding: 0 5%;
-}
-
-/* 欢迎横幅样式 */
-.hero-section {
-    text-align: center;
-    padding: 4rem 0;
-    border-bottom: 1px solid var(--border-color);
 }
 
 .hero-section h1 {
@@ -373,15 +367,6 @@ body {
 }
 
 /* 新增登录页面专用样式 */
-.login-container {
-    max-width: 400px;
-    margin: 4rem auto;
-    padding: 2rem;
-    background-color: var(--header-bg);
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
 .login-form {
     display: flex;
     flex-direction: column;
