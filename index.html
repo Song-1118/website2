@@ -21,9 +21,7 @@
             <img src="images/logo.png" alt="极光栈 Logo">
             <span class="logo-text">极光栈<br>AuroraHub</span>
         </div>
-        <!-- 在header-logo后添加汉堡菜单 -->
-        <button class="hamburger-menu">☰</button>
-        
+
         <nav class="nav-menu">
             <ul>
                 <li><a href="index.html" data-i18n="home">首页</a></li>
@@ -32,10 +30,12 @@
                 <li><a href="tutorials.html" data-i18n="tutorials">教程</a></li>
             </ul>
         </nav>
-
+        
         <div class="header-utils">
+            <button class="hamburger-menu">☰</button>
             <button class="theme-switcher" onclick="toggleTheme()">🌙</button>
             <button onclick="window.location.href='login.html'" class="btn-login-home" data-i18n="login">登录</button>
+            <button onclick="window.location.href='register.html'" class="btn-login-home" style="margin-left:8px;" data-i18n="register">注册</button>
             <select class="lang-switcher">
                 <option value="zh">中文</option>
                 <option value="en">English</option>

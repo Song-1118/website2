@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="login_title">极光栈|用户登录</title>
+    <title data-i18n="register_title">极光栈|用户注册</title>
     <link rel="icon" href="images/logo.svg" type="image/svg+xml">
     <link rel="stylesheet" href="src/styles.css">
-    <!-- 新增登录专用样式 -->
     <link rel="stylesheet" href="src/login-styles.css">
 </head>
 <body>
-    <!-- 替换原有SSI注释 -->
     <header data-load-header></header>
     
     <main class="login-container">
-        <form class="login-form" action="/auth" method="POST">
-            <h2 data-i18n="login_heading">用户登录</h2>
+        <form class="login-form" action="/register" method="POST">
+            <h2 data-i18n="register_heading">用户注册</h2>
             <div class="form-group">
                 <label data-i18n="username" for="username">用户名</label>
                 <input type="text" 
@@ -26,6 +24,15 @@
                        placeholder="请输入用户名">
             </div>
             <div class="form-group">
+                <label data-i18n="email" for="email">电子邮箱</label>
+                <input type="email"
+                       id="email"
+                       name="email"
+                       required
+                       data-i18n="email_placeholder"
+                       placeholder="请输入有效邮箱">
+            </div>
+            <div class="form-group">
                 <label data-i18n="password" for="password">密码</label>
                 <input type="password" 
                        id="password" 
@@ -34,12 +41,23 @@
                        data-i18n="password_placeholder"
                        placeholder="请输入密码">
             </div>
+            <div class="form-group">
+                <label data-i18n="confirm_password" for="confirm-password">确认密码</label>
+                <input type="password"
+                       id="confirm-password"
+                       name="confirm-password"
+                       required
+                       data-i18n="confirm_password_placeholder"
+                       placeholder="请再次输入密码">
+            </div>
             <button type="submit" 
                     class="btn-login"
-                    data-i18n="login"
-                    style="margin-top: 15px;">立即登录</button>
+                    data-i18n="register"
+                    style="margin-top: 15px;">立即注册</button>
+            <p style="text-align:center;margin-top:1rem;">
+                <a href="login.html" style="color:var(--primary-color);" data-i18n="to_login">已有账号？立即登录</a>
+            </p>
         </form>
-        <a href="register.html" data-i18n="to_register">还没有账号？点击创建</a>
     </main>
 
     <script src="src/scripts.js"></script>

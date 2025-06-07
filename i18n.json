@@ -30,7 +30,12 @@
         "login": "登录",
         "login_heading": "用户登录",
         "username": "用户名",
-        "password": "密码"
+        "password": "密码",
+        "register": "注册",
+        "username_placeholder": "请输入用户名",
+        "password_placeholder": "请输入密码",
+        "to_register": "没有账号？点击创建",
+        "to_login": "已有账号？点击登录"
     },
     "en": {
         "home": "Home",
@@ -63,6 +68,11 @@
         "login": "Login",
         "login_heading": "User Login",
         "username": "User Name",
-        "password": "Password"
+        "password": "Password",
+        "register": "Register",
+        "username_placeholder": "Please enter your user name",
+        "password_placeholder": "Please enter your password",
+        "to_register": "Have no account? Click to register",
+        "to_login": "Have an account? Click to login"
     }
 }
