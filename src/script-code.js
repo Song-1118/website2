@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Object.entries(codesData).forEach(([id, data]) => {
                 const card = document.createElement('article');
                 card.className = 'code-card';
-                card.onclick = () => window.location.href = `code-detail.html#${id}`;
+                card.onclick = () => window.location.href = `codes/code-detail.html#${id}`;
                 
                 card.innerHTML = `
                     <div class="card-header">

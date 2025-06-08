@@ -5,6 +5,9 @@
     "description": "用于连续、多次发送相同的微信消息",
     "last_updated": "2025-01-12",
     "file_size": "6.88 KB",
-    "icon": "/codes/images/01.ico"
+    "icon": "/codes/images/01.ico",
+    "link": {
+      "github": "https://github.com/Song-1118/code/releases/download/V1.0/default.zip"
+    }
   }
 }
