@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>资源广场 | 极光栈</title>
+    <link rel="stylesheet" href="src/styles.css" />
+    <link rel="stylesheet" href="src/resources-styles.css" />
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header-logo">
+        <img src="images/logo.png" alt="极光栈 Logo" />
+        <span class="logo-text">极光栈<br />AuroraHub</span>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="index.html" data-i18n="home">首页</a></li>
+          <li><a href="info.html" data-i18n="info">资讯</a></li>
+          <li><a href="code.html" data-i18n="code">代码</a></li>
+          <li><a href="tutorials.html" data-i18n="tutorials">教程</a></li>
+          <li><a href="resources.html" data-i18n="resources">资源广场</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-utils">
+        <button class="hamburger-menu">☰</button>
+        <button class="theme-switcher" onclick="toggleTheme()">🌙</button>
+        <button id="login-btn" style="display: none !important"></button>
+        <button
+          id="register-btn"
+          style="display: none !important; margin-left: 8px"
+        ></button>
+        <select class="lang-switcher">
+          <option value="zh">中文</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+    </header>
+
+    <main class="resource-main">
+      <section class="resource-section">
+        <h2 data-i18n="download_center">下载中心</h2>
+        <div class="resource-grid">
+          <div
+            class="resource-card"
+            onclick="window.location.href='code.html#python'"
+          >
+            <h3>Python工具包</h3>
+            <p>包含常用数据处理和机器学习库</p>
+            <div class="badge">v2.1.5</div>
+          </div>
+          <div
+            class="resource-card"
+            onclick="window.location.href='code.html#web'"
+          >
+            <h3>前端开发套件</h3>
+            <p>响应式布局模板和组件库</p>
+            <div class="badge">v1.0.2</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="resource-section">
+        <h2 data-i18n="code_repo">代码仓库</h2>
+        <div class="resource-grid">
+          <div
+            class="resource-card"
+            onclick="window.location.href='code.html#ai'"
+          >
+            <h3>机器学习示例</h3>
+            <p>经典算法实现与案例解析</p>
+            <div class="badge">15个项目</div>
+          </div>
+          <div
+            class="resource-card"
+            onclick="window.location.href='code.html#web'"
+          >
+            <h3>全栈项目模板</h3>
+            <p>前后端分离基础框架</p>
+            <div class="badge">3种技术栈</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="src/scripts.js"></script>
+  </body>
+</html>

@@ -51,3 +51,55 @@ function updateTextContent(lang, i18nData) {
         }
     });
 }
+
+// 修改语言切换事件增加元素存在判断
+const langSwitcher = document.querySelector('.lang-switcher');
+if (langSwitcher) {
+    langSwitcher.addEventListener('change', async (e) => {
+        const lang = e.target.value;
+        localStorage.setItem('lang', lang);
+        await loadLocale(lang);
+        e.target.blur(); // 新增失焦操作
+    });
+}
+
+// 新增移动端菜单切换功能
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+if (hamburgerMenu) {
+    hamburgerMenu.addEventListener('click', () => {
+        const navMenu = document.querySelector('.nav-menu ul');
+        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+}
+
+// 新增窗口resize监听器
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        document.querySelector('.nav-menu ul').style.display = 'flex';
+    } else {
+        document.querySelector('.nav-menu ul').style.display = 'none';
+    }
+});
+
+// 修改初始化函数中的语言选择器判断
+async function initSettings() {
+    // 保留主题初始化逻辑
+    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : '');
+    document.documentElement.setAttribute('data-theme', savedTheme);
+
+    const savedLang = localStorage.getItem('lang') || 'zh';
+    const langSwitcher = document.querySelector('.lang-switcher');
+    if (langSwitcher) {
+        langSwitcher.value = savedLang;
+    }
+    await loadLocale(savedLang);
+    
+    checkLoginEnable();
+}
+// 新增主题切换函数
+function toggleTheme() {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? '' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+}

@@ -45,7 +45,14 @@
         "article_publish_date": "发布时间",
         "view_count": "阅读量",
         "related_articles": "相关推荐",
-        "info_list": "资讯列表"
+        "info_list": "资讯列表",
+        "download_center": "下载中心",
+        "resources": "资源广场",
+        "resource_download": "下载中心",
+        "resource_code": "代码仓库",
+        "code_repo": "代码仓库",
+        "btn-tertiary": "下载中心",
+        "btn-quaternary": "代码仓库"
     },
     "en": {
         "home": "Home",
@@ -93,6 +100,13 @@
         "article_publish_date": "Publish Date",
         "view_count": "Views",
         "related_articles": "Related Articles",
-        "info_list": "Article List"
+        "info_list": "Article List",
+        "download_center": "Download Center",
+        "resources": "Resource Center",
+        "resource_download": "Download Center", 
+        "resource_code": "Code Repository",
+        "code_repo": "Code Repository",
+        "btn-tertiary": "Download Center",
+        "btn-quaternary": "Code Repo"
     }
 }

@@ -11,7 +11,6 @@
     <meta http-equiv="Content-Language" content="zh-CN">
     <title>极光栈|AuroraHub</title>
     <link rel="stylesheet" href="src/styles.css">
-    <!-- 新增首页专用样式 -->
     <link rel="stylesheet" href="src/home-styles.css">
     <link rel="icon" href="images/logo.svg" type="image/svg+xml">
 </head>
@@ -28,13 +27,13 @@
                 <li><a href="info.html" data-i18n="info">资讯</a></li>
                 <li><a href="code.html" data-i18n="code">代码</a></li>
                 <li><a href="tutorials.html" data-i18n="tutorials">教程</a></li>
+                <li><a href="resources.html" data-i18n="resources">资源广场</a></li>
             </ul>
         </nav>
         
         <div class="header-utils">
             <button class="hamburger-menu">☰</button>
             <button class="theme-switcher" onclick="toggleTheme()">🌙</button>
-            <!-- 增加永久隐藏样式 -->
             <button id="login-btn" style="display:none !important;"></button>
             <button id="register-btn" style="display:none !important; margin-left:8px;"></button>
             <select class="lang-switcher">
@@ -44,9 +43,7 @@
         </div>
     </header>
 
-    <!-- 新增主体部分 -->
     <main class="main-content">
-        <!-- 欢迎横幅 -->
         <section class="hero-section">
             <h1 data-i18n="welcome_title">欢迎来到极光栈</h1>
             <p class="subtitle" data-i18n="welcome_subtitle">探索无限可能</p>
@@ -74,7 +71,6 @@
 
     </main>
 
-    <!-- 新增底部 -->
     <footer class="main-footer">
         <div class="footer-content">
             <p data-i18n="copyright"></p>
