@@ -25,7 +25,7 @@
         <nav class="nav-menu">
             <ul>
                 <li><a href="index.html" data-i18n="home">首页</a></li>
-                <li><a href="about.html" data-i18n="about">关于我们</a></li>
+                <li><a href="info.html" data-i18n="home">资讯</a></li>
                 <li><a href="code.html" data-i18n="code">代码</a></li>
                 <li><a href="tutorials.html" data-i18n="tutorials">教程</a></li>
             </ul>
@@ -34,8 +34,9 @@
         <div class="header-utils">
             <button class="hamburger-menu">☰</button>
             <button class="theme-switcher" onclick="toggleTheme()">🌙</button>
-            <button id="login-btn" onclick="window.location.href='login.html'" class="btn-login-home" data-i18n="login" style="display:none;">登录</button>
-            <button id="register-btn" onclick="window.location.href='register.html'" class="btn-login-home" style="margin-left:8px; display:none;" data-i18n="register">注册</button>
+            <!-- 增加永久隐藏样式 -->
+            <button id="login-btn" style="display:none !important;"></button>
+            <button id="register-btn" style="display:none !important; margin-left:8px;"></button>
             <select class="lang-switcher">
                 <option value="zh">中文</option>
                 <option value="en">English</option>

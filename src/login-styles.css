@@ -49,6 +49,16 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* 新增错误提示样式 */
+.error-message {
+    color: #dc3545;
+    padding: 0.8rem;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+}
+
 @media (max-width: 480px) {
     .login-container {
         margin: 2rem 1rem;

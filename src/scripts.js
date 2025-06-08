@@ -37,56 +37,54 @@ function updateTextContent(lang) {
     });
 }
 
-// 新增登录功能开关检查
-async function checkLoginEnable() {
-    try {
-        const response = await fetch('https://kepaq4ixi0.hzh.sealos.run/Enable_login');
-        const data = await response.json();
-        const loginBtn = document.getElementById('login-btn');
-        const registerBtn = document.getElementById('register-btn');
-        
-        if (data.Enable_login === "true") {
-            loginBtn.style.display = 'block';
-            registerBtn.style.display = 'block';
-        } else {
-            loginBtn.style.display = 'none';
-            registerBtn.style.display = 'none';
-        }
-    } catch (error) {
-        console.error('检查登录功能时出错:', error);
-        // 默认隐藏按钮
-        document.getElementById('login-btn').style.display = 'none';
-        document.getElementById('register-btn').style.display = 'none';
+// 修改登录功能检查逻辑增加空值判断
+function checkLoginEnable() {
+    const loginBtn = document.getElementById('login-btn');
+    const registerBtn = document.getElementById('register-btn');
+    
+    if (loginBtn && registerBtn) {
+        loginBtn.style.display = 'none';
+        registerBtn.style.display = 'none';
     }
 }
 
-// 修改初始化函数添加主题初始化
+// 修改初始化函数中的语言选择器判断
 async function initSettings() {
-    // 新增主题初始化逻辑
+    // 保留主题初始化逻辑
     const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : '');
     document.documentElement.setAttribute('data-theme', savedTheme);
 
     const savedLang = localStorage.getItem('lang') || 'zh';
-    document.querySelector('.lang-switcher').value = savedLang;
+    const langSwitcher = document.querySelector('.lang-switcher');
+    if (langSwitcher) {
+        langSwitcher.value = savedLang;
+    }
     await loadLocale(savedLang);
-    await checkLoginEnable(); // 新增登录功能检查
+    
+    checkLoginEnable();
 }
 
 document.addEventListener('DOMContentLoaded', initSettings);
 
-// 修改语言切换事件
-document.querySelector('.lang-switcher').addEventListener('change', async (e) => {
-    const lang = e.target.value;
-    localStorage.setItem('lang', lang);
-    await loadLocale(lang);
-    e.target.blur(); // 新增失焦操作
-});
+// 修改语言切换事件增加元素存在判断
+const langSwitcher = document.querySelector('.lang-switcher');
+if (langSwitcher) {
+    langSwitcher.addEventListener('change', async (e) => {
+        const lang = e.target.value;
+        localStorage.setItem('lang', lang);
+        await loadLocale(lang);
+        e.target.blur(); // 新增失焦操作
+    });
+}
 
 // 新增移动端菜单切换功能
-document.querySelector('.hamburger-menu').addEventListener('click', () => {
-    const navMenu = document.querySelector('.nav-menu ul');
-    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-});
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+if (hamburgerMenu) {
+    hamburgerMenu.addEventListener('click', () => {
+        const navMenu = document.querySelector('.nav-menu ul');
+        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+    });
+}
 
 // 新增窗口resize监听器
 window.addEventListener('resize', () => {
@@ -96,3 +94,26 @@ window.addEventListener('resize', () => {
         document.querySelector('.nav-menu ul').style.display = 'none';
     }
 });
+
+// 新增注册表单提交处理
+// 修改后的注册表单提交处理
+document.querySelector('.login-form')?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // 新增功能未完成提示
+    showError('注册功能暂未完成，敬请期待');
+
+});
+
+// 新增错误提示函数
+function showError(message) {
+    const errorDiv = document.querySelector('.error-message') || document.createElement('div');
+    errorDiv.className = 'error-message';
+    errorDiv.textContent = message;
+    errorDiv.style.cssText = 'color:red; padding:10px; margin-bottom:15px; border:1px solid #ffcccc; background:#ffeeee;';
+    
+    const form = document.querySelector('.login-form');
+    if (!document.querySelector('.error-message')) {
+        form.prepend(errorDiv);
+    }
+}
