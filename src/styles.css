@@ -308,45 +308,35 @@ body {
     }
 }
 
-/* 新增隐私协议专用样式 */
-.privacy-content {
-  max-width: 800px;
-  margin: 2rem auto;
-  line-height: 1.6;
-  padding: 0 1.5rem;
-}
-
-.privacy-content h3 {
-  color: var(--primary-color);
-  margin: 2rem 0 1rem;
-  font-size: 1.4rem;
-}
-
-.privacy-content h4 {
-  color: var(--text-color);
-  opacity: 0.9;
-  margin: 1.5rem 0 0.8rem;
-  font-size: 1.2rem;
-}
-
-.privacy-content p {
-  margin-bottom: 1rem;
-  color: var(--text-color);
-  opacity: 0.85;
-}
-
-.privacy-content ul {
-  padding-left: 1.8rem;
-  margin-bottom: 1.5rem;
-}
-
-.privacy-content li {
-  margin-bottom: 0.8rem;
-}
-
 /* 暗黑模式适配 */
 [data-theme="dark"] .privacy-content {
   --privacy-link-color: #4d9dff;
+  background-color: var(--bg-color);
+}
+
+[data-theme="dark"] .privacy-header h1 {
+    color: var(--primary-color);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+[data-theme="dark"] .privacy-definitions h2 {
+    border-bottom-color: var(--border-color);
+}
+
+[data-theme="dark"] .privacy-definitions li {
+    color: var(--text-color);
+    opacity: 0.9;
+}
+
+[data-theme="dark"] .privacy-content ul {
+    border-left: 2px solid var(--border-color);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  [data-theme="dark"] .privacy-content {
+    background-color: var(--header-bg);
+  }
 }
 
 .privacy-content a {
@@ -354,17 +344,10 @@ body {
   text-decoration: underline;
 }
 
-/* 移动端适配 */
-@media (max-width: 768px) {
-  .privacy-content {
-    padding: 0 1rem;
-    font-size: 0.95rem;
-  }
-  
-  .privacy-content h3 {
-    font-size: 1.3rem;
-  }
+[data-theme="dark"] .privacy-definitions h3 {
+    opacity: 0.9;
 }
+
 
 /* 新增登录页面专用样式 */
 .login-form {
@@ -647,4 +630,3 @@ body {
         border-color: var(--border-color);
     }
 }
-
