@@ -2,7 +2,7 @@
     "zh": {
         "home": "首页",
         "search": "搜索内容...",
-        "about": "关于我们",
+        "info": "资讯",
         "code": "代码",
         "tutorials": "教程",
         "welcome_title": "欢迎来到极光栈",
@@ -39,12 +39,18 @@
         "email": "邮箱",
         "email_placeholder": "请输入有效邮箱",
         "confirm_password_placeholder": "请再次输入密码",
-        "confirm_password": "确认密码"
+        "confirm_password": "确认密码",
+        "info_detail": "资讯详情",
+        "article_author": "作者",
+        "article_publish_date": "发布时间",
+        "view_count": "阅读量",
+        "related_articles": "相关推荐",
+        "info_list": "资讯列表"
     },
     "en": {
         "home": "Home",
         "search": "Search...",
-        "about": "About",
+        "info": "Information",
         "code": "Code",
         "tutorials": "Tutorials",
         "welcome_title": "Welcome to AuroraHub",
@@ -81,6 +87,12 @@
         "email": "Email",
         "email_placeholder": "Please enter a valid email",
         "confirm_password_placeholder": "Please enter your password again",
-        "confirm_password": "Confirm Password"
+        "confirm_password": "Confirm Password",
+        "info_detail": "Article Detail",
+        "article_author": "Author",
+        "article_publish_date": "Publish Date",
+        "view_count": "Views",
+        "related_articles": "Related Articles",
+        "info_list": "Article List"
     }
 }

@@ -1,0 +1,30 @@
+{
+    "zh":{
+        "1": {
+            "title": "2025极光栈更新公告",
+            "text": "全面升级开发工具链，支持最新前端框架"
+        },
+        "2": {
+            "title": "2025安全更新公告",
+            "text": "加强安全防护，修复已知漏洞"
+        },
+        "3": {
+            "title": "2025功能更新公告",
+            "text": "新增多项实用功能，提升用户体验"
+        }
+    },
+    "en":{
+        "1": {
+            "title": "2025 AuroraHub Update Notice",
+            "text": "Full upgrade of development tool chain with latest frameworks"
+        },
+        "2": {
+            "title": "2025 Security Update Notice",
+            "text": "Enhanced security measures with vulnerability fixes"
+        },
+        "3": {
+            "title": "2025 Feature Update Notice",
+            "text": "Added new features to improve user experience"
+        }
+    }
+}

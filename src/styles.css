@@ -455,6 +455,111 @@ body {
     }
 }
 
+/* 新增资讯列表页样式 */
+.info-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 5%;
+}
+
+.page-title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+.article-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.info-card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s;
+
+    &:hover {
+        transform: translateY(-3px);
+    }
+}
+
+.info-thumbnail {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.info-content {
+    padding: 1.5rem;
+
+    & h2 {
+        font-size: 1.2rem;
+        color: var(--text-color);
+        margin-bottom: 0.8rem;
+    }
+
+    & p {
+        font-size: 0.95rem;
+        color: var(--text-color);
+        opacity: 0.9;
+    }
+}
+
+/* 修改资讯卡片暗黑模式适配 */
+.info-card {
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+}
+
+.info-content h2 {
+    color: var(--primary-color);
+}
+
+/* 新增页脚暗黑模式适配 */
+.main-footer {
+    background-color: var(--header-bg);
+    border-top-color: var(--border-color);
+}
+
+.footer-content p {
+    color: var(--text-color);
+}
+
+/* 优化按钮暗黑模式 */
+.btn-primary:hover {
+    background-color: var(--primary-color);
+    opacity: 0.9;
+}
+
+.btn-secondary:hover {
+    border-color: var(--primary-color);
+}
+
+/* 新增登录表单暗黑模式适配 */
+.login-container {
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.form-group input {
+    background-color: var(--header-bg);
+}
+
+/* 适配资讯详情页 */
+.info-detail {
+    background-color: var(--bg-color);
+}
+
+.meta-info {
+    color: var(--text-color);
+}
+
+.related-articles {
+    border-top-color: var(--border-color);
+}
+
 /* 按钮基础样式 */
 .btn-primary,
 .btn-secondary {
@@ -475,3 +580,71 @@ body {
     color: var(--primary-color);
     border: 2px solid var(--primary-color);
 }
+
+/* 在现有暗黑模式变量基础上新增以下适配 */
+
+/* 资讯卡片暗黑模式适配 */
+[data-theme="dark"] .info-card {
+    background-color: var(--header-bg);
+    border-color: var(--border-color);
+}
+
+[data-theme="dark"] .info-content h1.info-title {
+    color: var(--primary-color);
+}
+
+[data-theme="dark"] .info-summary {
+    opacity: 0.9;
+}
+
+/* 页脚暗黑模式适配 */
+[data-theme="dark"] .main-footer {
+    background-color: var(--header-bg);
+    border-top-color: var(--border-color);
+}
+
+[data-theme="dark"] .footer-links a {
+    color: var(--text-color);
+}
+
+/* 登录表单暗黑模式适配 */
+[data-theme="dark"] .login-container {
+    background-color: var(--header-bg);
+}
+
+[data-theme="dark"] .form-group input {
+    background-color: var(--bg-color);
+    border-color: var(--border-color);
+}
+
+/* 通用元素适配 */
+[data-theme="dark"] {
+    /* 输入框 */
+    input:not([type="submit"]), 
+    select,
+    textarea {
+        background-color: var(--header-bg);
+        color: var(--text-color);
+        border-color: var(--border-color);
+    }
+    
+    /* 分隔线 */
+    hr {
+        border-color: var(--border-color);
+    }
+    
+    /* 代码块 */
+    pre code {
+        background-color: var(--header-bg);
+        border: 1px solid var(--border-color);
+    }
+}
+
+/* 移动端菜单暗黑模式适配 */
+@media (max-width: 768px) {
+    [data-theme="dark"] .nav-menu ul {
+        background-color: var(--bg-color);
+        border-color: var(--border-color);
+    }
+}
+

@@ -1,0 +1,138 @@
+/* 资讯详情页核心样式 */
+.info-detail {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+}
+
+.article-title {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+}
+
+.meta-info {
+    display: flex;
+    gap: 1.5rem;
+    color: var(--text-color);
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+}
+
+.feature-image {
+    width: 100%;
+    border-radius: 8px;
+    margin: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.article-content {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    
+    & p {
+        margin-bottom: 1.5rem;
+    }
+    
+    & img {
+        max-width: 100%;
+        margin: 1.5rem 0;
+        border-radius: 6px;
+    }
+}
+
+.related-articles {
+    border-top: 1px solid var(--border-color);
+    padding-top: 3rem;
+    margin-top: 3rem;
+
+    & h3 {
+        font-size: 1.4rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* 暗黑模式适配 */
+[data-theme="dark"] {
+    .feature-image {
+        opacity: 0.9;
+    }
+    
+    .article-content {
+        opacity: 0.95;
+    }
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .article-title {
+        font-size: 1.8rem;
+    }
+    
+    .meta-info {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .article-content {
+        font-size: 1rem;
+    }
+}
+
+.info-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.info-content {
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    & h2.info-title {
+        font-size: 1.3rem;
+        color: var(--primary-color);
+        margin-bottom: 0.8rem;
+        line-height: 1.4;
+    }
+
+    & p.info-summary {
+        font-size: 0.95rem;
+        color: var(--text-color);
+        opacity: 0.9;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+.info-card:hover .info-content {
+    background-color: var(--header-bg);
+}
+
+/* 新增卡片点击区域样式 */
+.card-clickable {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+/* 修改原有悬停效果 */
+.info-card:hover .card-clickable {
+    transform: translateY(-3px);
+}
+
+/* 删除原有a标签相关样式 */
