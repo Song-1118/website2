@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // 多语言加载功能
 async function loadLocale(lang) {
     try {
-        // 修改i18n文件路径为info目录下的版本
-        const response = await fetch('../info/i18n.json');
+        // 修改资讯页的语言文件路径
+        const response = await fetch(`/i18n.json`);
         const data = await response.json();
         updateTextContent(lang, data);
     } catch (error) {

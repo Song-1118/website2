@@ -1,0 +1,111 @@
+/* 代码下载页核心样式 */
+.code-main {
+    padding: 2rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.code-grid {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.code-card {
+    background: var(--header-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 1.5rem;
+    transition: transform 0.3s;
+    cursor: pointer;
+    
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+    
+    & h2 {
+        color: var(--primary-color);
+        font-size: 1.3rem;
+    }
+}
+
+.code-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.code-desc {
+    color: var(--text-color);
+    opacity: 0.9;
+    min-height: 60px;
+    margin-bottom: 1.5rem;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.version-badge {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
+
+.btn-detail {
+    background: none;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s;
+    
+    &:hover {
+        background: var(--primary-color);
+        color: white;
+    }
+}
+
+/* 详情页样式 */
+.detail-main {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 5%;
+}
+
+.download-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.download-meta {
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+.btn-download {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    
+    &:hover {
+        opacity: 0.9;
+    }
+}

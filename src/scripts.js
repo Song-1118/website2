@@ -11,7 +11,9 @@ let i18nData = {};
 
 async function loadLocale(lang) {
     try {
-        const response = await fetch(`i18n.json`);
+        // 修改前: const response = await fetch(`i18n.json`);
+        // 修改后使用根目录绝对路径
+        const response = await fetch(`/i18n.json`);
         const data = await response.json();
         i18nData = data;
         updateTextContent(lang);

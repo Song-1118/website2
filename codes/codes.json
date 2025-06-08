@@ -1,0 +1,10 @@
+{
+  "01": {
+    "title": "微信轰炸器(Wechat Bomb)",
+    "version": "v4.0",
+    "description": "用于连续、多次发送相同的微信消息",
+    "last_updated": "2025-01-12",
+    "file_size": "6.88 KB",
+    "icon": "/codes/images/01.ico"
+  }
+}

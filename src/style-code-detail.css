@@ -1,0 +1,59 @@
+/* 代码详情页专用样式 */
+.code-detail-main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 5%;
+}
+
+.detail-header {
+    /* 减小标题与上方内容的间隙 */
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+}
+
+.code-detail-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    /* 修改阴影效果 */
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    padding: 2rem;
+    transition: box-shadow 0.3s ease;
+}
+
+.code-icon-large {
+    width: 80px;
+    height: 80px;
+    margin-right: 1.5rem;
+}
+
+.title-wrapper {
+    display: flex;
+    align-items: center;  /* 修改为居中对齐 */
+    gap: 1.2rem;
+    margin-bottom: 1.5rem;  /* 增加下方间距 */
+}
+
+.title-wrapper h1 {
+    font-size: 2rem;
+}
+
+.download-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;  /* 增大上下边距 */
+}
+
+.download-buttons .btn-download {
+    padding: 0.75rem 1.5rem;  /* 增大按钮尺寸 */
+    border-radius: 8px;  /* 圆角调整 */
+    font-weight: 500;  /* 字体加粗 */
+}
+
+.code-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  /* 增大最小宽度 */
+    gap: 1.5rem;  /* 增大间距 */
+    margin-top: 3rem;  /* 增大上方间距 */
+    padding-top: 2rem;  /* 增大上方内边距 */
+    border-top: 1px solid var(--border-color);
+}
