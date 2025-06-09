@@ -33,11 +33,11 @@ const renderDownloadItems = async () => {
                 <p class="download-desc">${window.i18nData?.[baseLang]?.[item.description] || window.i18nData?.zh?.[item.description] || item.description}</p>
                 <div class="download-meta">
                     <div class="meta-item">
-                        <span class="meta-label">${window.i18nData?.[baseLang]?.["last_updated"] || window.i18nData?.zh?.["last_updated"] || "最后更新"}</span>
+                        <span class="meta-label" data-i18n="last_updated"></span>
                         <span class="meta-value">${formatDate(item.date)}</span>
                     </div>
                     <div class="meta-item">
-                        <span class="meta-label">${window.i18nData?.[baseLang]?.["file_size"] || window.i18nData?.zh?.['file_size'] || '文件大小'}</span>
+                        <span class="meta-label" data-i18n="file_size"></span>
                         <span class="meta-value">${item.size}</span>
                     </div>
                 </div>
