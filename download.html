@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-i18n="code_download_title">极光栈|代码下载</title>
+    <title data-i18n="download_title">极光栈|资源下载</title>
     <link rel="stylesheet" href="src/styles.css">
-    <link rel="stylesheet" href="src/style-code.css">
-    <link rel="icon" href="images/logo.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="src/style-download.css">
+    <link rel="icon" href="/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
     <!-- 复用公共头部 -->
@@ -23,6 +23,7 @@
                 <li><a href="code.html" data-i18n="code">代码</a></li>
                 <li><a href="tutorials.html" data-i18n="tutorials">教程</a></li>
                 <li><a href="resources.html" data-i18n="resources">资源广场</a></li>
+                <li><a href="download.html" data-i18n="download">下载</a></li>
             </ul>
         </nav>
         
@@ -38,15 +39,15 @@
         </div>
     </header>
 
-    <main class="code-main">
-        <h1 class="page-title" data-i18n="code_list_title">代码仓库</h1>
+    <main class="download-main">
+        <h1 class="page-title" data-i18n="download_list_title">资源下载</h1>
         
-        <div class="code-grid" id="codeItemsContainer">
-            <!-- 代码卡片将由JS动态生成 -->
+        <div class="download-grid" id="downloadItemsContainer">
+            <!-- 下载卡片将由JS动态生成 -->
         </div>
     </main>
 
-    <script src="src/script-code.js"></script>
+    <script src="src/script-download.js"></script>
     <script src="src/scripts.js"></script>
 </body>
 </html>

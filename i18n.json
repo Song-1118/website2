@@ -67,7 +67,17 @@
         "download_options": "下载选项",
         "download_git": "git仓库",
         "file_size": "文件大小：",
-        "code_detail_title": "代码详情"
+        "code_detail_title": "代码详情",
+        "download_title": "极光栈|资源下载",
+        "download_list_title": "资源下载",
+        "download_zip": "ZIP 压缩包",
+        "download_size": "大小",
+        "download_version": "版本",
+        "download_date": "发布日期",
+        "download_error": "下载失败，请重试",
+        "retry": "重试",
+        "download_success": "下载成功",
+        "network_error": "网络连接异常"
     },
     "en": {
         "home": "Home",
@@ -137,6 +147,16 @@
         "download_options": "Download Options",
         "download_git": "Download from GitHub",
         "file_size": "File Size:",
-        "code_detail_title": "Code Detail"
+        "code_detail_title": "Code Detail",
+        "download_title": "AuroraHub|Downloads",
+        "download_list_title": "Download Resources",
+        "download_zip": "ZIP Archive",
+        "download_size": "Size",
+        "download_version": "Version",
+        "download_date": "Release Date",
+        "download_error": "Download failed, please try again",
+        "retry": "Retry", 
+        "download_success": "Download completed",
+        "network_error": "Network connection error"
     }
 }

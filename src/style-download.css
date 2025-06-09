@@ -1,0 +1,78 @@
+/* 下载主区域 */
+.download-main {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 下载卡片样式 */
+.download-card {
+    background: var(--header-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.download-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.download-header h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    flex: 1;
+}
+
+.download-desc {
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+}
+
+/* 下载元数据 */
+.download-meta {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+}
+
+.meta-label {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+/* 下载按钮 */
+.download-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-download {
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-download:hover {
+    background: var(--primary-dark);
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+    .download-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

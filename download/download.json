@@ -1,0 +1,30 @@
+{
+    "01":{
+        "id": "python-toolkit",
+        "title": "Python工具包",
+        "description": "包含数据处理和机器学习常用库的完整工具包",
+        "version": "v2.1.5",
+        "size": "85.6 MB",
+        "date": "2024-03-15",
+        "downloads": [
+            {
+                "type": "zip",
+                "label": "download_zip"
+            }
+        ]
+    },
+    "02":{
+        "id": "web-template",
+        "title": "前端开发模板",
+        "description": "响应式网站开发基础模板",
+        "version": "v1.0.3",
+        "size": "12.3 MB",
+        "date": "2024-02-28",
+        "downloads": [
+            {
+                "type": "zip",
+                "label": "download_zip"
+            }
+        ]
+    }
+}
