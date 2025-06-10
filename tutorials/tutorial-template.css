@@ -1,0 +1,202 @@
+/* 新增在文件开头 */
+:root {
+    --text-secondary: #666666;
+    --code-text-color: #333333;
+    --code-comment-color: #6a9955;
+    --code-keyword-color: #569cd6;
+    --code-string-color: #ce9178;
+    --code-highlight-color: rgba(255, 255, 0, 0.2);
+}
+
+/* 新增暗黑模式变量 */
+[data-theme="dark"] {
+    --text-secondary: #aaaaaa;
+    --code-text-color: #d4d4d4;
+    --code-comment-color: #6a9955;
+    --code-keyword-color: #569cd6;
+    --code-string-color: #ce9178;
+    --code-highlight-color: rgba(255, 255, 0, 0.1);
+}
+
+/* 教程页面基础样式 */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    color: var(--text-color);
+}
+
+.header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.title {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.meta {
+    display: flex;
+    gap: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.content {
+    line-height: 1.6;
+}
+
+/* 代码块样式 */
+.code-block {
+    position: relative; /* 新增: 为绝对定位的子元素提供参考 */
+    background-color: var(--header-bg);
+    border-radius: 6px;
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-family: 'Courier New', monospace;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    line-height: 1.8;
+    letter-spacing: 0.5px;
+}
+
+.code-block pre {
+    border: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+.code {
+    color: var(--code-text-color);
+    white-space: pre;
+    border: none !important;
+    outline: none !important;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+.code-copy-btn {
+    position: absolute;
+    right: 0.5rem;  /* 从1rem改回0.5rem */
+    top: 0.5rem;  /* 从1rem改回0.5rem */
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.code-block:hover .code-copy-btn {
+    opacity: 1;
+}
+
+/* 新增代码注释样式 */
+.code-comment {
+    color: var(--code-comment-color);
+    font-style: italic;
+}
+
+/* 新增代码关键字样式 */
+.code-keyword {
+    color: var(--code-keyword-color) !important;
+    font-weight: bold !important;
+}
+
+/* 新增代码字符串样式 */
+.code-string {
+    color: var(--code-string-color);
+}
+
+/* 新增代码模块样式 */
+.code-module {
+    color: var(--code-keyword-color) !important;
+    font-style: normal !important;
+}
+
+/* 新增代码函数样式 */
+.code-function {
+    color: #dcdcaa !important;
+    font-weight: bold !important;
+}
+
+/* 新增代码行号样式 */
+.code-line-numbers {
+    display: inline-block;
+    margin-right: 1rem;
+    color: var(--text-secondary);
+    user-select: none;
+}
+
+/* 新增代码高亮行样式 */
+.code-highlight-line {
+    background-color: var(--code-highlight-color);
+    display: inline-block;
+    width: 100%;
+    margin: 0 -1rem;
+    padding: 0 1rem;
+}
+
+/* 章节样式 */
+.section {
+    margin-bottom: 2rem;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 1.5rem 0 1rem;
+    border-bottom: 1px dashed var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+/* 暗黑模式适配 */
+[data-theme="dark"] {
+    .container {
+        background-color: var(--bg-color);
+    }
+    
+    .header {
+        border-bottom-color: var(--border-color);
+    }
+    
+    .title {
+        color: var(--primary-color);
+    }
+    
+    .meta {
+        color: var(--text-secondary);
+    }
+    
+    .section-title {
+        color: var(--primary-color);
+        border-bottom-color: var(--border-color);
+    }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+    
+    .title {
+        font-size: 1.5rem;
+    }
+    
+    .code-block {
+        padding: 1rem;
+        font-size: 0.85rem;
+    }
+}
+

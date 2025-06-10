@@ -73,7 +73,8 @@
         "download_success": "下载成功",
         "network_error": "网络连接异常",
         "author": "作者：",
-        "overview": "代码简介："
+        "overview": "代码简介：",
+        "lang": "语言："
     },
     "en": {
         "home": "Home",
@@ -149,6 +150,7 @@
         "download_success": "Download completed",
         "network_error": "Network connection error",
         "author": "Author:",
-        "overview": "Code Overview:"
+        "overview": "Code Overview:",
+        "lang": "Language:"
     }
 }

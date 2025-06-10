@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>教程|微信轰炸器</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+    <link rel="stylesheet" href="tutorial-template.css" />
+    <link rel="icon" href="/images/logo.svg" type="image/svg+xml" />
+    <script src="tutorial-highlight.js"></script>
+  </head>
+  <body>
+    <header class="main-header">
+      <div class="header-logo">
+        <img src="/images/logo.png" alt="极光栈 Logo" />
+        <span class="logo-text">极光栈<br />AuroraHub</span>
+      </div>
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="/index.html" data-i18n="home">首页</a></li>
+          <li><a href="/info.html" data-i18n="info">资讯</a></li>
+          <li><a href="/code.html" data-i18n="code">代码</a></li>
+          <li><a href="/tutorials.html" data-i18n="tutorials">教程</a></li>
+          <li><a href="/resources.html" data-i18n="resources">资源广场</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-utils">
+        <button class="hamburger-menu">☰</button>
+        <button class="theme-switcher" onclick="toggleTheme()">🌙</button>
+        <button id="login-btn" style="display: none !important"></button>
+        <button
+          id="register-btn"
+          style="display: none !important; margin-left: 8px"
+        ></button>
+        <select class="lang-switcher">
+          <option value="zh">中文</option>
+          <option value="en">English</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="header">
+        <h1 class="title">微信轰炸器教程</h1>
+        <div class="meta">
+          <strong><span>作者: 极光栈团队</span></strong>
+          <span>语言: Python</span>
+          <span>发布时间: 2024-06-10</span>
+        </div>
+      </div>
+      <div class="content"> 
+        <h2 class="section-title" id="1-介绍">1. 介绍</h2>
+        <p>本教程将介绍如何使用Python编写一个微信轰炸器。</p>
+        <h2 class="section-title" id="2-安装依赖">2. 安装依赖</h2>
+        <p>首先，你需要安装Python和pip。如果你没有安装Python，你可以从<a href="https://www.python.org/downloads/">Python官网</a>下载安装。</p>
+        <p>下载完成后，你可以在终端运行 <strong class="code-keyword">pip install pynput</strong> 来安装pyput库</p>
+        <h2 class="section-title" id="3-编写代码">3. 编写代码</h2>
+        <p>创建一个名为wechat_bomber.py的文件，并添加以下代码：</p>
+        <div class="code-block">
+            <button class="code-copy-btn">复制</button>
+            <pre><code class="code">
+from pynput.keyboard import Key,Controller
+import time
+
+keyboard = Controller()
+
+def start():
+    a = input("请输入你需要刷屏的内容：")
+    b = eval(input('请输入你想刷屏的次数：'))
+    print("数据已接收！请将光标移动到会话框")
+    time.sleep(2)
+    for i in range(3):
+        print(r'距离自动刷屏还有%d秒！'%(3-i))
+        time.sleep(1)
+    for i in range(b):
+        keyboard.type(a)
+        keyboard.press(Key.enter)
+        keyboard.release(Key.enter)
+        time.sleep(0.1)
+        
+start()
+            </code></pre>
+        </div>
+        <p>编写完成后在终端运行命令 <strong class="code-keyword">python wechat_bomber.py</strong> 运行成功就可以开始使用了。</p>
+      </div>
+    </div>
+
+    <script src="/src/scripts.js"></script>
+  </body>
+</html>

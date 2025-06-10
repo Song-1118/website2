@@ -18,20 +18,20 @@
     --text-secondary: #aaaaaa;
 }
 
-/* 代码下载页核心样式 */
-.code-main {
+/* 教程页核心样式 */
+.tutorials-main {
     padding: 2rem 5%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-.code-grid {
+.tutorials-grid {
     display: grid;
     gap: 2rem;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 }
 
-.code-card {
+.tutorial-card {
     background: var(--header-bg);
     border: 1px solid var(--border-color);
     border-radius: 10px;
@@ -45,7 +45,7 @@
     }
 }
 
-.card-header {
+.tutorial-header {
     display: flex;
     align-items: center;
     gap: 1rem;
@@ -57,75 +57,75 @@
     }
 }
 
-.code-icon {
+.tutorial-icon {
     width: 40px;
     height: 40px;
     object-fit: contain;
 }
 
-.code-desc {
+.tutorial-desc {
     color: var(--text-color);
     opacity: 0.9;
     min-height: 60px;
     margin-bottom: 1.5rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-.card-footer {
+.author {
+    display: flex;
+}
+
+.lang {
+    display: flex;
+}
+
+.tutorial-meta {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-}
-
-.version-badge {
-    background: var(--primary-color);
-    color: white;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
+    color: var(--text-secondary);
     font-size: 0.9rem;
+    margin-top: 1rem;
 }
 
-.btn-detail {
-    background: none;
-    border: 1px solid var(--primary-color);
-    color: var(--primary-color);
-    padding: 0.5rem 1.2rem;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s;
+/* 暗黑模式适配 */
+[data-theme="dark"] {
+    .tutorials-main {
+        background-color: var(--bg-color);
+    }
     
-    &:hover {
-        background: var(--primary-color);
-        color: white;
+    .page-title {
+        color: var(--primary-color);
+    }
+    
+    /* 增强现有适配规则 */
+    .tutorial-card {
+        background-color: var(--header-bg);
+        border-color: var(--border-color);
+        
+        &:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+    }
+    
+    .tutorial-header h2 {
+        color: var(--primary-color);
+    }
+    
+    .tutorial-desc {
+        color: var(--text-color);
+    }
+    
+    .tutorial-meta {
+        color: var(--text-secondary);
     }
 }
 
-/* 详情页样式 */
-.detail-main {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 5%;
-}
-
-.download-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-}
-
-.download-meta {
-    color: var(--text-color);
-    opacity: 0.8;
-}
-
-.btn-download {
-    background: var(--primary-color);
-    color: white;
-    padding: 0.8rem 2rem;
-    border-radius: 30px;
-    font-size: 1.1rem;
-    
-    &:hover {
-        opacity: 0.9;
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .tutorials-grid {
+        grid-template-columns: 1fr;
     }
 }
