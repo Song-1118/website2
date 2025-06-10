@@ -5,14 +5,33 @@
     padding: 0 5%;
 }
 
+/* 新增链接样式 - 保持链接颜色不变 */
+.code-detail-main a,
+.code-detail-main a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+.back-link {
+    color: var(--link-color);
+}
+
+.page-title {
+    margin-bottom: auto;
+}
+
 .detail-header {
     /* 减小标题与上方内容的间隙 */
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
+    margin-bottom: 1px;
+    padding-bottom: 1px;
+}
+
+.file-author {
+    margin-bottom: 5px;
 }
 
 .code-detail-card {
-    background: var(--card-bg);
+    background: var(--header-bg);
     border-radius: 12px;
     /* 修改阴影效果 */
     box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
@@ -30,7 +49,7 @@
     display: flex;
     align-items: center;  /* 修改为居中对齐 */
     gap: 1.2rem;
-    margin-bottom: 1.5rem;  /* 增加下方间距 */
+    margin-bottom: 10px;  /* 增加下方间距 */
 }
 
 .title-wrapper h1 {
@@ -40,13 +59,28 @@
 .download-buttons {
     display: flex;
     gap: 1rem;
-    margin: 2rem 0;  /* 增大上下边距 */
+    margin-bottom: 2rem 0;  /* 增大上下边距 */
+    margin-top: 10px;
+    margin-left: 20px;
 }
 
 .download-buttons .btn-download {
-    padding: 0.75rem 1.5rem;  /* 增大按钮尺寸 */
+    padding: 0.6rem 0.9rem;  /* 增大按钮尺寸 */
     border-radius: 8px;  /* 圆角调整 */
-    font-weight: 500;  /* 字体加粗 */
+    font-weight: 200;  /* 字体加粗 */
+    font-size: 20px;
+    border: none;
+    
+}
+
+.download-section {
+    border-top: 1px solid var(--border-color);
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.code-full-desc {
+    margin-bottom: 10px;
 }
 
 .code-meta {

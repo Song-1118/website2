@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('codeTitle').textContent = data.title;
                 document.getElementById('codeVersion').textContent = data.version;
                 document.getElementById('codeDescription').textContent = data.description;
+                document.getElementById('authorName').textContent = data.author;
                 // document.getElementById('codeIcon').setAttribute('src', data.icon);
                 // 更新元数据
                 document.querySelectorAll('.meta-value').forEach((elem, index) => {
