@@ -121,12 +121,17 @@ function addDownloadEventListeners() {
 
 // 处理下载逻辑
 function handleDownload(itemId, type) {
-    const item = downloadItems.find(i => i.id === itemId);
-    if (!item) return;
+    // 从url下载
+    const url = "/download/作者很懒，还没做文件.txt"
+    const fileName = url.split('/').pop();
     
-    // 这里可以替换为实际的下载逻辑
-    console.log(`Downloading ${item.title} (${type})`);
-    alert(`开始下载: ${item.title} (${type.toUpperCase()})`);
+    // 创建隐藏的a标签进行下载
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = fileName; // 设置download属性强制下载
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
 }
 
 // 页面加载完成后初始化
