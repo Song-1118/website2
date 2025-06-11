@@ -1,0 +1,26 @@
+<div class="code-block">
+    <button class="code-copy-btn">复制</button>
+    <pre><code class="language-python">from pynput.keyboard import Key,Controller # 导入键盘控制模块
+import time # 导入时间模块
+
+keyboard = Controller() # 创建键盘控制对象
+
+# 定义开始函数
+def start():
+    a = input("请输入你需要刷屏的内容：") # 输入需要刷屏的内容
+    b = int(input('请输入你想刷屏的次数：')) # 输入需要刷屏的次数
+    print("数据已接收！请将光标移动到会话框") # 提示用户
+    time.sleep(2) 
+    for i in range(3): # 等待3秒，让用户移动到发送窗口
+        print(r'距离自动刷屏还有%d秒！'%(3-i))
+        time.sleep(1)
+    for i in range(b):
+        keyboard.type(a) # 输入内容a
+        keyboard.press(Key.enter) # 模拟按下回车键
+        keyboard.release(Key.enter) # 模拟释放回车键
+        time.sleep(0.1)
+        
+if __name__ == '__main__':
+  start() # 运行程序
+            </code></pre>
+</div>

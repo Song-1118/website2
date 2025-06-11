@@ -74,7 +74,8 @@
         "network_error": "网络连接异常",
         "author": "作者：",
         "overview": "代码简介：",
-        "lang": "语言："
+        "lang": "语言：",
+        "tutorial-title": "教程学习"
     },
     "en": {
         "home": "Home",
@@ -151,6 +152,7 @@
         "network_error": "Network connection error",
         "author": "Author:",
         "overview": "Code Overview:",
-        "lang": "Language:"
+        "lang": "Language:",
+        "tutorial-title": "Learn to code"
     }
 }

@@ -1,33 +1,89 @@
 // 初始化资讯页面功能
 document.addEventListener('DOMContentLoaded', () => {
-    // 加载语言设置
-    loadLocale(localStorage.getItem('lang') || 'zh');
+    initSettings();
+    loadInfoData();
     
-    // 绑定卡片点击事件
-    document.querySelectorAll('.card-clickable').forEach(card => {
-        card.addEventListener('click', function(e) {
-            // 阻止默认链接跳转行为
-            if (e.target.tagName === 'A') return;
-            window.location = this.closest('[onclick]').getAttribute('onclick').match(/'(.*?)'/)[1];
-        });
+    // 新增代码高亮处理
+    const docPres = document.querySelectorAll('#post_content pre');
+    docPres.forEach(pre => {
+        const classVal = pre.getAttribute('class');
+        if (classVal) {
+            const classArr = classVal.split(';')[0].split(':');
+            const lanClass = 'language-' + classArr[1];
+            const preContent = `<code class="${lanClass}">${pre.innerHTML}</code>`;
+            pre.innerHTML = preContent;
+            pre.setAttribute("class", 'line-numbers ' + lanClass);
+        }
     });
 
-    // 初始化暗黑模式
-    const savedTheme = localStorage.getItem('theme') || '';
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    // 监听主题变化
+    const themeObserver = new MutationObserver(mutations => {
+        mutations.forEach(mutation => {
+            if (mutation.attributeName === 'data-theme') {
+                const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+                document.body.style.backgroundColor = isDark ? '#121212' : '';
+                document.querySelectorAll('.info-card, .article-grid').forEach(el => {
+                    el.style.backgroundColor = isDark ? '#1E1E1E' : '';
+                    el.style.color = isDark ? '#FFFFFF' : '';
+                });
+                // 移除代码块的背景色
+                document.querySelectorAll('pre').forEach(el => {
+                    el.style.backgroundColor = 'transparent';
+                });
+            }
+        });
+    });
+    themeObserver.observe(document.documentElement, { attributes: true });
 });
 
-// 多语言加载功能
-async function loadLocale(lang) {
+// 加载资讯数据
+async function loadInfoData() {
     try {
-        // 修改资讯页的语言文件路径
-        const response = await fetch(`/i18n.json`);
-        const data = await response.json();
-        updateTextContent(lang, data);
+        const response = await fetch('/info/info.json');
+        const infoData = await response.json();
+        renderInfoCards(infoData);
+        
+        // 绑定卡片点击事件
+        document.querySelectorAll('.card-clickable').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') return;
+                window.location = this.closest('[onclick]').getAttribute('onclick').match(/'(.*?)'/)[1];
+            });
+        });
     } catch (error) {
-        console.error('Error loading language file:', error);
+        console.error('Error loading info data:', error);
     }
 }
+
+// 渲染资讯卡片
+function renderInfoCards(data) {
+    const grid = document.querySelector('.article-grid');
+    grid.innerHTML = '';
+    
+    data.forEach(item => {
+        const card = document.createElement('article');
+        card.className = 'info-card';
+        card.innerHTML = `
+            <div class="card-clickable" onclick="window.location='${item.url}'">
+                <div class="info-content">
+                    <h1 class="info-title">${item.title}</h1>
+                    <p class="info-summary">${item.summary}</p>
+                    <p class="info-date">${item.date}</p>
+                </div>
+            </div>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+// 窗口resize监听器
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        document.querySelector('.nav-menu ul').style.display = 'flex';
+    } else {
+        document.querySelector('.nav-menu ul').style.display = 'none';
+    }
+});
 
 // 更新文本内容
 function updateTextContent(lang, i18nData) {
@@ -50,56 +106,4 @@ function updateTextContent(lang, i18nData) {
             console.warn(`i18n key "${keyPath.join('.')}" not found`);
         }
     });
-}
-
-// 修改语言切换事件增加元素存在判断
-const langSwitcher = document.querySelector('.lang-switcher');
-if (langSwitcher) {
-    langSwitcher.addEventListener('change', async (e) => {
-        const lang = e.target.value;
-        localStorage.setItem('lang', lang);
-        await loadLocale(lang);
-        e.target.blur(); // 新增失焦操作
-    });
-}
-
-// 新增移动端菜单切换功能
-const hamburgerMenu = document.querySelector('.hamburger-menu');
-if (hamburgerMenu) {
-    hamburgerMenu.addEventListener('click', () => {
-        const navMenu = document.querySelector('.nav-menu ul');
-        navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
-    });
-}
-
-// 新增窗口resize监听器
-window.addEventListener('resize', () => {
-    if (window.innerWidth > 768) {
-        document.querySelector('.nav-menu ul').style.display = 'flex';
-    } else {
-        document.querySelector('.nav-menu ul').style.display = 'none';
-    }
-});
-
-// 修改初始化函数中的语言选择器判断
-async function initSettings() {
-    // 保留主题初始化逻辑
-    const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : '');
-    document.documentElement.setAttribute('data-theme', savedTheme);
-
-    const savedLang = localStorage.getItem('lang') || 'zh';
-    const langSwitcher = document.querySelector('.lang-switcher');
-    if (langSwitcher) {
-        langSwitcher.value = savedLang;
-    }
-    await loadLocale(savedLang);
-    
-    checkLoginEnable();
-}
-// 新增主题切换函数
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? '' : 'dark';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
 }

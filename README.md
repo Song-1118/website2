@@ -31,7 +31,7 @@
 <body>
     <header class="main-header">
         <div class="header-logo">
-            <img src="images/logo.png" alt="极光栈 Logo">
+            <img src="/images/logo.png" alt="极光栈 Logo">
             <span class="logo-text">极光栈<br>AuroraHub</span>
         </div>
 

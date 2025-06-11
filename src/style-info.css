@@ -1,8 +1,56 @@
 /* 资讯详情页核心样式 */
-.info-detail {
-    max-width: 800px;
+.info-container {
+    max-width: 1200px;
     margin: 2rem auto;
     padding: 0 1.5rem;
+}
+
+.article-grid {
+    display: grid;
+    grid-template-columns: 1fr;  /* 改为单列布局 */
+    gap: 2rem;  /* 增大间距 */
+}
+
+/* 调整卡片样式 */
+.info-card {
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: var(--card-bg);
+    width: 100%;  /* 确保卡片宽度100% */
+    margin-bottom: 1.5rem;  /* 添加底部间距 */
+
+    &:hover {
+        transform: translateY(-5px);  /* 添加悬浮上移效果 */
+        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+    }
+}
+
+.info-content {
+    padding: 2rem;  /* 增大内边距 */
+
+    & h2.info-title {
+        font-size: 1.5rem;  /* 增大标题字号 */
+        margin-bottom: 1rem;
+    }
+
+    & p.info-date {
+        font-size: 0.9rem;  /* 增大日期字号 */
+        margin-bottom: 1rem;
+    }
+
+    & p.info-summary {
+        font-size: 1rem;  /* 增大摘要字号 */
+        -webkit-line-clamp: 5;  /* 显示更多行摘要 */
+    }
+}
+
+/* 详情页通用样式 */
+.info-detail {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
 }
 
 .article-title {
@@ -15,7 +63,7 @@
 .meta-info {
     display: flex;
     gap: 1.5rem;
-    color: var(--text-color);
+    color: var(--text-secondary);
     opacity: 0.8;
     margin-bottom: 2rem;
     font-size: 0.9rem;
@@ -44,31 +92,12 @@
     }
 }
 
-.related-articles {
-    border-top: 1px solid var(--border-color);
-    padding-top: 3rem;
-    margin-top: 3rem;
-
-    & h3 {
-        font-size: 1.4rem;
-        color: var(--primary-color);
-        margin-bottom: 1.5rem;
-    }
-}
-
-/* 暗黑模式适配 */
-[data-theme="dark"] {
-    .feature-image {
-        opacity: 0.9;
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .article-grid {
+        grid-template-columns: 1fr;
     }
     
-    .article-content {
-        opacity: 0.95;
-    }
-}
-
-/* 移动端适配 */
-@media (max-width: 768px) {
     .article-title {
         font-size: 1.8rem;
     }
@@ -83,42 +112,15 @@
     }
 }
 
-.info-card {
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: box-shadow 0.3s;
-
-    &:hover {
-        box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
-    }
-}
-
-.info-content {
-    padding: 1.5rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-
-    & h2.info-title {
-        font-size: 1.3rem;
-        color: var(--primary-color);
-        margin-bottom: 0.8rem;
-        line-height: 1.4;
-    }
-
-    & p.info-summary {
-        font-size: 0.95rem;
-        color: var(--text-color);
+/* 暗黑模式适配 */
+[data-theme="dark"] {
+    .feature-image {
         opacity: 0.9;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
     }
-}
-
-.info-card:hover .info-content {
-    background-color: var(--header-bg);
+    
+    .article-content {
+        opacity: 0.95;
+    }
 }
 
 /* 新增卡片点击区域样式 */

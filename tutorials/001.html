@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="tutorial-template.css" />
     <link rel="icon" href="/images/logo.svg" type="image/svg+xml" />
     <script src="tutorial-highlight.js"></script>
+    <link rel="stylesheet" href="/src/prism (2).css" />
   </head>
   <body>
     <header class="main-header">
@@ -60,27 +61,29 @@
         <p>创建一个名为wechat_bomber.py的文件，并添加以下代码：</p>
         <div class="code-block">
             <button class="code-copy-btn">复制</button>
-            <pre><code class="code">
-from pynput.keyboard import Key,Controller
-import time
+            <pre><code class="language-python">from pynput.keyboard import Key,Controller # 导入键盘控制模块
+import time # 导入时间模块
 
-keyboard = Controller()
+keyboard = Controller() # 创建键盘控制对象
 
+# 定义开始函数
 def start():
-    a = input("请输入你需要刷屏的内容：")
-    b = eval(input('请输入你想刷屏的次数：'))
-    print("数据已接收！请将光标移动到会话框")
-    time.sleep(2)
-    for i in range(3):
+    a = input("请输入你需要刷屏的内容：") # 输入需要刷屏的内容
+    b = eval(input('请输入你想刷屏的次数：')) # 输入需要刷屏的次数
+    print("数据已接收！请将光标移动到会话框") # 提示用户
+    time.sleep(2) 
+    for i in range(3): # 等待3秒，让用户移动到发送窗口
         print(r'距离自动刷屏还有%d秒！'%(3-i))
         time.sleep(1)
     for i in range(b):
-        keyboard.type(a)
-        keyboard.press(Key.enter)
-        keyboard.release(Key.enter)
+        keyboard.type(a) # 输入内容a
+        keyboard.press(Key.enter) # 模拟按下回车键
+        keyboard.release(Key.enter) # 模拟释放回车键
         time.sleep(0.1)
         
-start()
+if __name__ == '__main__':
+  start() # 运行程序
+
             </code></pre>
         </div>
         <p>编写完成后在终端运行命令 <strong class="code-keyword">python wechat_bomber.py</strong> 运行成功就可以开始使用了。</p>
@@ -88,5 +91,22 @@ start()
     </div>
 
     <script src="/src/scripts.js"></script>
+    <script src="/src/prism (2).js"></script>
+    <!-- <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.4/jquery.js"></script> -->
+    <script>
+     $(document).ready(function(){
+    var doc_pre = $("#post_content pre");
+    doc_pre.each(function(){
+        var class_val = $(this).attr('class');
+        var class_arr = new Array();
+        class_arr = class_val.split(';');
+        class_arr = class_arr['0'].split(':');
+        var lan_class = 'language-'+class_arr['1'];
+        var pre_content = '<code class="'+lan_class+'">'+$(this).html()+'</code>';
+        $(this).html(pre_content);
+        $(this).attr("class",'line-numbers '+lan_class);
+    });
+});
+    </script>
   </body>
 </html>
