@@ -21,8 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         mutations.forEach(mutation => {
             if (mutation.attributeName === 'data-theme') {
                 const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-                document.body.style.backgroundColor = isDark ? '#121212' : '';
-                document.querySelectorAll('.info-card, .article-grid').forEach(el => {
+                document.querySelectorAll('.info-card').forEach(el => {
                     el.style.backgroundColor = isDark ? '#1E1E1E' : '';
                     el.style.color = isDark ? '#FFFFFF' : '';
                 });
@@ -35,6 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     themeObserver.observe(document.documentElement, { attributes: true });
 });
+
+
 
 // 加载资讯数据
 async function loadInfoData() {
